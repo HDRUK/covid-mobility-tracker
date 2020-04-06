@@ -1,0 +1,57 @@
+---
+title: "UK Mobility Reports"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output:
+  powerpoint_presentation:
+    reference_doc: template_1.pptx
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+load('continuous_plots.RData')
+library(tidyverse)
+library(patchwork)
+```
+
+## UK Mobility Reports
+
+This is a report from mobility data recorded by Google. It reports percentage change by region compared to the baseline level of movements.
+
+Reports represent movement from several days ago (as data has to be aggregated by google). The most recent available data was released on `r date_of_pull`.
+
+## Residential Movements 
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c1 + ggtitle(date_of_pull) | scotland_c_1)
+```
+
+## Pharmacy/ Groceries Movements
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c2 + ggtitle(date_of_pull) | scotland_c_2)
+```
+
+## Transit Movements
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c3 + ggtitle(date_of_pull) | scotland_c3)
+```
+
+## Residential Movements 
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c4 + ggtitle(date_of_pull) | scotland_c4)
+```
+
+## Park Movements
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c5 + ggtitle(date_of_pull) | scotland_c5)
+```
+
+## Workplace Movements
+
+```{r fig.width=25, fig.height=10, echo=FALSE}
+(c6 + ggtitle(date_of_pull) | scotland_c6)
+```
